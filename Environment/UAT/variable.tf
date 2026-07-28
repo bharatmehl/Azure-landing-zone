@@ -1,5 +1,9 @@
 variable "rgs" {}
 variable "vnets" {}
-# variable "pips" {}
+variable "pips" {}
 variable "subnets" {}
-# variable "nsgs" {}
+variable "nsgs" {}
+# variable "bastion" {}
+variable "nics" {}
+variable "nsgass" {}
+variable "vms" {}

@@ -3,7 +3,9 @@ variable "vnets" {}
 variable "pips" {}
 variable "subnets" {}
 variable "nsgs" {}
-# variable "bastion" {}
+variable "bastion" {}
 variable "nics" {}
 variable "nsgass" {}
 variable "vms" {}
+variable "keyvault" {}
+variable "vaultsecrets" {}

@@ -24,12 +24,12 @@ module "azurerm_public_ip" {
   pips       = var.pips
 }
 
-# module "azurerm_bastion" {
-#   depends_on = [module.azurerm_public_ip, module.azurerm_subnet]
-#   source     = "../../child-Modules/azure_bastion"
-#   bastion    = var.bastion
+module "azurerm_bastion" {
+  depends_on = [module.azurerm_public_ip, module.azurerm_subnet]
+  source     = "../../child-Modules/azure_bastion"
+  bastion    = var.bastion
 
-# }
+}
 
 module "azurerm_network_card" {
   depends_on = [module.azurerm_resource_group, module.azurerm_subnet]
@@ -53,5 +53,12 @@ module "azurerm_vms" {
   depends_on = [module.azurerm_network_card]
   source     = "../../child-Modules/azurerm_virtual_machine"
   vms        = var.vms
+
+}
+
+module "azurerm_keyvault" {
+  depends_on = [module.azurerm_resource_group]
+  source     = "../../child-Modules/azurerm_keyvault"
+  keyvault   = var.keyvault
 
 }
